@@ -1,5 +1,5 @@
 {
-  "name": "quester",
+  "name": "questy",
   "version": "1.0.0",
   "description": "Recurses a directory and requires files",
   "main": "src/index.js",
@@ -7,7 +7,8 @@
     "test": "mocha"
   },
   "author": "Tyson Cadenhead",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": "git@github.com:Aloompa/questy.git",
   "devDependencies": {
     "mocha": "^2.3.3"
   }
