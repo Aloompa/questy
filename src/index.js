@@ -5,7 +5,7 @@ module.exports = (options) => {
 
     options = options || {};
 
-    const rootPath = options.rootPath || path.resolve('../../../src');
+    const rootPath = options.rootPath || path.resolve('../src');
     const folderContains = options.folderContains || '__tests__';
     const fileContains = options.fileContains || '.spec.js';
 
