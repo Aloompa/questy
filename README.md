@@ -40,6 +40,10 @@ A string to check against of what the folder name should contain for us to run t
 
 A string that the file name must contain in order to be required.
 
+## Contributing
+
+We encourage you to contribute to Questy by submitting bug reports and pull requests through [Github](http://github.com).
+
 ## License
 
 Questy is released under The [MIT License](http://www.opensource.org/licenses/MIT) (MIT)
