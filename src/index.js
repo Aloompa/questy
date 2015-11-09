@@ -5,7 +5,7 @@ module.exports = function (options) {
 
     options = options || {};
 
-    var rootPath = options.rootPath || path.resolve('./src');
+    var rootPaths = options.rootPaths || [options.rootPath || path.resolve('./src')];
     var folderContains = options.folderContains || '__tests__';
     var fileContains = options.fileContains || '.spec.js';
 
@@ -37,6 +37,6 @@ module.exports = function (options) {
         });
     }
 
-    searchForTests(rootPath);
+    rootPaths.forEach(searchForTests);
 
 };
