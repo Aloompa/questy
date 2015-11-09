@@ -1,31 +1,31 @@
-const fs = require('fs');
-const path = require('path');
+var fs = require('fs');
+var path = require('path');
 
-module.exports = (options) => {
+module.exports = function (options) {
 
     options = options || {};
 
-    const rootPath = options.rootPath || path.resolve('./src');
-    const folderContains = options.folderContains || '__tests__';
-    const fileContains = options.fileContains || '.spec.js';
+    var rootPath = options.rootPath || path.resolve('./src');
+    var folderContains = options.folderContains || '__tests__';
+    var fileContains = options.fileContains || '.spec.js';
 
-    const isDirectory = (name) => {
+    var isDirectory = function (name) {
         return !~name.indexOf('.');
     };
 
-    const searchForTests = (dir) => {
+    var searchForTests = function (dir) {
 
-        const items = fs.readdirSync(dir);
+        var items = fs.readdirSync(dir);
 
-        items.forEach((item) => {
+        items.forEach(function (item) {
 
-            const directory = `${dir}/${item}`;
+            var directory = dir + '/' + item;
 
             if (~item.indexOf(folderContains)) {
 
-                fs.readdirSync(directory).forEach((test) => {
+                fs.readdirSync(directory).forEach(function (test) {
                     if (~test.indexOf(fileContains)) {
-                        require(`${directory}/${test}`);
+                        require(directory + '/' + test);
                     }
                 });
 
