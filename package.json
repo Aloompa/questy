@@ -1,6 +1,6 @@
 {
   "name": "questy",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Recurses a directory and requires files",
   "main": "src/index.js",
   "scripts": {
