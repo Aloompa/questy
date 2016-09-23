@@ -10,7 +10,11 @@ module.exports = function (options) {
     var fileContains = options.fileContains || '.spec.js';
 
     var isDirectory = function (name) {
-        return !~name.indexOf('.');
+        try {
+            return fs.statSync(name).isDirectory();
+        } catch (err) {
+            return false;
+        }
     };
 
     var searchForTests = function (dir) {
@@ -20,8 +24,9 @@ module.exports = function (options) {
         items.forEach(function (item) {
 
             var directory = dir + '/' + item;
+            var isDir = isDirectory(directory);
 
-            if (~item.indexOf(folderContains)) {
+            if (isDir && ~item.indexOf(folderContains)) {
 
                 fs.readdirSync(directory).forEach(function (test) {
                     if (~test.indexOf(fileContains)) {
@@ -29,7 +34,7 @@ module.exports = function (options) {
                     }
                 });
 
-            } else if (isDirectory(item)) {
+            } else if (isDir) {
 
                 searchForTests(directory);
 
