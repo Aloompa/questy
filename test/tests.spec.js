@@ -64,4 +64,16 @@ describe('The Quester Test Suite', () => {
             assert.ok(global.callCount);
         });
     });
+
+    describe('When we have directories and files', () => {
+      it('Should only traverse directories', () => {
+          global.callCount = 0;
+
+          quester({
+              rootPath: path.resolve(__dirname, '../fixtures/types'),
+          });
+
+          assert.ok(global.callCount);
+      });
+    });
 });
